@@ -11,21 +11,21 @@ All of the Ansible AWS modules require you to install the Python Boto library as
 Role Variables
 --------------
 
-- cc_operator_user: username of the CodeCommit Operator
-- cc_operators_group: group name that contains CodeCommitOperator Users
-- cc_operators_policy: policy name that grants rights to the CodeCommit operators (the policy name must be identical to the policy filename located in /files) 
-- alpha_committer_user: username of the Project Alpha committer
-- alpha_committers_group: group name that contains Project Alpha committers
-- alpha_committers_policy: policy name that grants rights to the Project Alpha Committers group (the policy name must be identical to the policy filename located in /files)
-- alpha_puller_user: username of the Project Alpha puller
-- alpha_pullers_group: group name that contains Project Alpha pullers
-- alpha_pullers_policy: policy name that grants rights to the Project Alpha Pullers group (the policy name must be identical to the policy filename located in /files)
-- bravo_committer_user: username of Project Bravo Committer
-- bravo_committers_group: group name that contains Project Bravo committers
-- bravo_committers_policy: policy name that grants rights to the Project Bravo Committers group (the policy name must be identical to the policy filename located in /files)
-- bravo_puller_user: username of the Project Bravo puller
-- bravo_pullers_group: group name that contains Project Bravo pullers
-- bravo_pullers_policy: policy name that grants rights to the Project Bravo Pullers group (the policy name must be identical to the policy filename located in /files)
+- **cc_operator_user:** username of the CodeCommit Operator
+- **cc_operators_group:** group name that contains CodeCommitOperator Users
+- **cc_operators_policy:** policy name that grants rights to the CodeCommit operators (the policy name must be identical to the policy filename located in /files) 
+- **alpha_committer_user:** username of the Project Alpha committer
+- **alpha_committers_group:** group name that contains Project Alpha committers
+- **alpha_committers_policy:** policy name that grants rights to the Project Alpha Committers group (the policy name must be identical to the policy filename located in /files)
+- **alpha_puller_user:** username of the Project Alpha puller
+- **alpha_pullers_group:** group name that contains Project Alpha pullers
+- **alpha_pullers_policy:** policy name that grants rights to the Project Alpha Pullers group (the policy name must be identical to the policy filename located in /files)
+- **bravo_committer_user:** username of Project Bravo Committer
+- **bravo_committers_group:** group name that contains Project Bravo committers
+- **bravo_committers_policy:** policy name that grants rights to the Project Bravo Committers group (the policy name must be identical to the policy filename located in /files)
+- **bravo_puller_user:** username of the Project Bravo puller
+- **bravo_pullers_group:** group name that contains Project Bravo pullers
+- **bravo_pullers_policy:** policy name that grants rights to the Project Bravo Pullers group (the policy name must be identical to the policy filename located in /files)
 
 Dependencies
 ------------
