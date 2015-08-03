@@ -1,0 +1,7 @@
+---
+# add users
+- name: adding users to system
+  sudo: yes
+  user:
+    name: "{{ item.key }}"
+  with_dict: "{{users}}"

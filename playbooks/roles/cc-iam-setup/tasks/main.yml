@@ -1,0 +1,60 @@
+---
+# tasks file for cc-iam-setup
+- name: create IAM groups
+  iam:
+    iam_type: group
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - "{{ cc_operators_group }}"
+    - "{{ alpha_committers_group }}"
+    - "{{ alpha_pullers_group }}"
+    - "{{ bravo_committers_group }}"
+    - "{{ bravo_pullers_group }}"
+- name: create IAM users
+  iam:
+    iam_type: user
+    name: "{{ item.name }}"
+    state: present
+    groups: "{{ item.group }}"
+  with_items:
+    - { name: "{{ cc_operator_user }}", group: "{{ cc_operators_group }}" }
+    - { name: "{{ alpha_committer_user }}", group: "{{ alpha_committers_group }}" }
+    - { name: "{{ alpha_puller_user }}", group: "{{ alpha_pullers_group }}" }
+    - { name: "{{ bravo_committer_user }}", group: "{{ bravo_committers_group }}" }
+    - { name: "{{ bravo_puller_user }}", group: "{{ bravo_pullers_group }}" }
+- name: create IAM role
+  iam: 
+    iam_type: role
+    name: CodeCommitInstanceRole
+    state: present
+- name: create inline IAM policies and attach to Groups created above
+  iam_policy: 
+    iam_type: group
+    iam_name: "{{ item.group }}"
+    policy_name: "{{ item.policy }}"
+    policy_document: "roles/cc-iam-setup/files/{{ item.policy }}.json"
+    state: present
+  with_items:
+    - { group: "{{ cc_operators_group }}", policy: "{{ cc_operators_policy }}" }
+    - { group: "{{ alpha_committers_group }}", policy: "{{ alpha_committers_policy }}" }
+    - { group: "{{ alpha_pullers_group }}", policy: "{{ alpha_pullers_policy }}" }
+    - { group: "{{ bravo_committers_group }}", policy: "{{ bravo_committers_policy }}" }
+    - { group: "{{ bravo_pullers_group }}", policy: "{{ bravo_pullers_policy }}" }
+- name: create inline IAM policy and attach to Role created above
+  iam_policy: 
+    iam_type: role
+    iam_name: CodeCommitInstanceRole
+    policy_name: CodeCommitInstancePolicy
+    policy_document: roles/cc-iam-setup/files/CodeCommitInstancePolicy.json
+    state: present
+- name: upload public SSH keys for each user
+  shell: "aws iam upload-ssh-public-key --ssh-public-key-body file://roles/cc-iam-setup/files/{{ item }}.pub --user-name {{ item }} --query 'SSHPublicKey.{ID:SSHPublicKeyId}' --output text"
+  with_items:
+    - "{{ alpha_committer_user }}"
+    - "{{ alpha_puller_user }}"
+    - "{{ bravo_committer_user }}"
+    - "{{ bravo_puller_user }}"
+  register: upload_result
+- name: debug upload upload_result
+  debug: var=upload_result

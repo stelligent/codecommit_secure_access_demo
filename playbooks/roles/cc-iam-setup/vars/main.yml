@@ -1,0 +1,17 @@
+---
+# vars file for cc-iam-setup
+cc_operator_user: CCOperator
+cc_operators_group: CCOperators
+cc_operators_policy: CCOperatorsPolicy
+alpha_committer_user: CCProjectAlphaCommitter
+alpha_committers_group: CCProjectAlphaCommitters
+alpha_committers_policy: CCProjectAlphaCommittersPolicy
+alpha_puller_user: CCProjectAlphaPuller
+alpha_pullers_group: CCProjectAlphaPullers
+alpha_pullers_policy: CCProjectAlphaPullersPolicy
+bravo_committer_user: CCProjectBravoCommitter
+bravo_committers_group: CCProjectBravoCommitters
+bravo_committers_policy: CCProjectBravoCommittersPolicy
+bravo_puller_user: CCProjectBravoPuller
+bravo_pullers_group: CCProjectBravoPullers
+bravo_pullers_policy: CCProjectBravoPullersPolicy

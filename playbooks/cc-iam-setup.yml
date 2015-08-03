@@ -1,0 +1,5 @@
+- name: create requisite Code Commit IAM resources
+  hosts: localhost
+  gather_facts: False
+  roles:
+    - role: cc-iam-setup

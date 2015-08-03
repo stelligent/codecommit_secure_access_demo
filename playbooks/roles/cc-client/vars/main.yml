@@ -1,0 +1,28 @@
+---
+# vars file for cc-client
+users:
+  alice:
+    ssh_key_id: APKAJ2M2OAMITCYKUGTA
+    pem_file: CCProjectAlphaCommitter.pem
+  bob:
+    ssh_key_id: APKAJ6ESOXFRWSOQYKOA
+    pem_file: CCProjectAlphaPuller.pem
+  carol:
+    ssh_key_id: APKAID5LJAF7GGTE3AZA
+    pem_file: CCProjectBravoCommitter.pem
+  dave:
+    ssh_key_id: APKAJCVVPVJO56IFSFTQ
+    pem_file: CCProjectBravoPuller.pem
+repos:
+  project_alpha_foo:
+    env: ALPHA_FOO_REPO 
+    url: 'ssh://git-codecommit.us-east-1.amazonaws.com/v1/repos/project-alpha-foo'
+  project_alpha_bar: 
+    env: ALPHA_BAR_REPO
+    url: 'ssh://git-codecommit.us-east-1.amazonaws.com/v1/repos/project-alpha-bar'
+  project_bravo_foo:
+    env: BRAVO_FOO_REPO
+    url: 'ssh://git-codecommit.us-east-1.amazonaws.com/v1/repos/project-bravo-foo'
+  project_bravo_bar:
+    env: BRAVO_BAR_REPO
+    url: 'ssh://git-codecommit.us-east-1.amazonaws.com/v1/repos/project-bravo-bar'

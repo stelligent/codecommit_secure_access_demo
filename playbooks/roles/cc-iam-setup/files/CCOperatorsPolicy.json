@@ -1,0 +1,17 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": [
+        "codecommit:BatchGetRepositories",
+        "codecommit:Get*",
+        "codecommit:Create*",
+        "codecommit:DeleteRepository",
+        "codecommit:List*",
+        "codecommit:Update*"
+      ],
+      "Effect": "Allow",
+      "Resource": "*"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+- name: install required packages
+  sudo: yes
+  yum:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - libselinux-python
+    - git

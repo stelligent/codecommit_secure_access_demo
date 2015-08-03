@@ -1,0 +1,24 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": [
+        "codecommit:BatchGetRepositories",
+        "codecommit:CreateBranch",
+        "codecommit:CreateRepository",
+        "codecommit:DeleteRepository",
+        "codecommit:GetBranch",
+        "codecommit:GetRepository",
+        "codecommit:GitPull",
+        "codecommit:GitPush",
+        "codecommit:ListBranches",
+        "codecommit:ListRepositories",
+        "codecommit:UpdateDefaultBranch",
+        "codecommit:UpdateRepositoryDescription",
+        "codecommit:UpdateRepositoryName"
+      ],
+      "Effect": "Allow",
+      "Resource": "*"
+    }
+  ]
+}

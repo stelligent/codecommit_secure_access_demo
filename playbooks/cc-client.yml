@@ -1,0 +1,5 @@
+- name: Setup a workstation that can connect to AWS CodeCommit using git over SSH
+  hosts: default
+  gather_facts: False
+  roles:
+    - role: cc-client

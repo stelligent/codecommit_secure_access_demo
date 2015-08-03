@@ -1,0 +1,25 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": [
+        "codecommit:CreateBranch",
+        "codecommit:Get*",
+        "codecommit:List*",
+        "codecommit:GitPull",
+        "codecommit:GitPush",
+        "codecommit:UpdateDefaultBranch",
+        "codecommit:UpdateRepositoryDescription"
+      ],
+      "Effect": "Allow",
+      "Resource": "arn:aws:codecommit:us-east-1:324320755747:project-bravo-*"
+    },
+    {
+      "Action": [
+        "iam:UploadSSHPublicKey"
+      ],
+      "Effect": "Allow",
+      "Resource": "arn:aws:iam::324320755747:user/${aws:username}"
+    }
+  ]
+}

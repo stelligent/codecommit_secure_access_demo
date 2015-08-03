@@ -1,0 +1,28 @@
+- name: create .ssh dir in home directories
+  become: yes
+  become_user: "{{ item.key }}"
+  file: 
+    path: ~/.ssh
+    state: directory
+  with_dict: "{{users}}"  
+- name: add pem keys to .ssh dir
+  become: yes
+  become_user: "{{ item.key }}"
+  copy: 
+    src: "{{ item.value.pem_file }}"
+    dest: "~/.ssh/{{ item.value.pem_file }}"
+    mode: 0400
+  with_dict: "{{users}}"
+- name: add ssh config file for each user
+  become: yes
+  become_user: "{{ item.key }}"
+  template:
+    src: ssh-config
+    dest: ~/.ssh/config
+    mode: 0600
+  with_dict: "{{users}}"
+- name: add Code Commit server in us-east-1 (only supported region) to SSH known_hosts
+  become: yes
+  become_user: "{{ item.key }}"
+  shell: ssh-keyscan git-codecommit.us-east-1.amazonaws.com >> ~/.ssh/known_hosts
+  with_dict: "{{users}}"

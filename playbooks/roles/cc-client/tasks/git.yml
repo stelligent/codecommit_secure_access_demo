@@ -1,0 +1,16 @@
+- name: create repo url env vars file
+  sudo: yes
+  shell: touch /etc/profile.d/git_urls.sh
+- name: add env variables for CodeCommit repo URLs
+  sudo: yes
+  lineinfile:
+    dest: /etc/profile.d/git_urls.sh
+    line: "export {{item.value.env}}={{item.value.url}}"
+  with_dict: "{{repos}}"
+- name: create a repos dir for each user
+  become: yes
+  become_user: "{{ item.key }}"
+  file:
+    path: ~/repos
+    state: directory
+  with_dict: "{{users}}" 

@@ -1,0 +1,6 @@
+---
+# tasks file for cc-client
+- include: packages.yml
+- include: users.yml
+- include: ssh.yml
+- include: git.yml
