@@ -1,0 +1,12 @@
+---
+# vars file for cc-ec2-builder
+#behavioral inventory params
+ansible_ssh_user: ec2-user
+ansible_ssh_private_key_file: ~/personal/shayne-labs.pem
+#normal vars
+ssh_pub_key_id: APKAJZRGXUTBEXCZFG5Q
+s3_bucket: stelligent-pem-files
+s3_object: cc_ssh_user.pem
+git_repo_url: ssh://git-codecommit.us-east-1.amazonaws.com/v1/repos/HelloWorld
+git_repo_name: hello-world
+git_repo_dest: "{{ git_repo_name }}"

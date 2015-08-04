@@ -1,5 +1,9 @@
 ---
 # vars file for cc-client
+#behavioral params
+ansible_ssh_user: vagrant
+ansible_private_key_file: ../.vagrant/machines/default/virtualbox/private_key
+#dict
 users:
   alice:
     ssh_key_id: APKAJ2M2OAMITCYKUGTA

@@ -1,0 +1,10 @@
+---
+# vars file for ec2-launcher
+region: us-east-1
+ami: ami-1ecae776
+instance_type: t2.micro
+keypair: shayne-labs
+security_group: inbound-ssh
+instance_profile_name: CodeCommitPushPullRole
+vpc_subnet_id: subnet-4013507a
+count: 1

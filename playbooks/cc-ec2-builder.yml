@@ -1,0 +1,5 @@
+- name: configure and EC2 build machine to clone/push/pull CodeCommit repos
+  hosts: tag_role_builder
+  gather_facts: False
+  roles:
+    - role: cc-ec2-builder
